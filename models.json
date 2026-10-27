@@ -1,0 +1,592 @@
+[
+  {
+    "id": "smollm2-1-7b-instruct",
+    "name": "SmolLM2 1.7B Instruct",
+    "creator": "Hugging Face",
+    "family": "SmolLM",
+    "blurb": "A pocket-size assistant that fits almost any computer, even a very old one.",
+    "params": "1.7B",
+    "approxDownloadGB": 1.8,
+    "ramGB": { "min": 4, "max": 8 },
+    "device": "cpu-friendly",
+    "license": "Apache 2.0 (very permissive)",
+    "strengths": [
+      "Runs on almost anything, including CPU-only laptops and mini PCs",
+      "Quick replies, low battery cost, tiny download",
+      "Fully open Apache 2.0 - no strings attached"
+    ],
+    "weaknesses": [
+      "Shallow answers on hard questions",
+      "Loses the thread in long conversations",
+      "Can be confidently wrong"
+    ],
+    "verdict": {
+      "level": "great-first-pick",
+      "text": "If your machine struggled with the last decade, start here - proof that your laptop can still run AI."
+    },
+    "links": [
+      { "label": "Hugging Face model card", "url": "https://huggingface.co/HuggingFaceTB/SmolLM2-1.7B-Instruct" },
+      { "label": "Get it on Ollama", "url": "https://ollama.com/library/smollm2" }
+    ],
+    "installHint": "ollama run smollm2:1.7b",
+    "rechecked": "2026-10-27"
+  },
+  {
+    "id": "llama-3-2-1b-instruct",
+    "name": "Llama 3.2 1B Instruct",
+    "creator": "Meta",
+    "family": "Llama",
+    "blurb": "Meta's smallest Llama, built for phones and old laptops - handy for quick edits and summaries.",
+    "params": "1B",
+    "approxDownloadGB": 1.3,
+    "ramGB": { "min": 4, "max": 8 },
+    "device": "cpu-friendly",
+    "license": "Llama Community License (free with conditions)",
+    "strengths": [
+      "Tiny download that installs in minutes",
+      "Good at short rewrites, summaries, and quick drafts",
+      "Works on surprisingly little hardware"
+    ],
+    "weaknesses": [
+      "Makes things up more often than bigger models",
+      "Weak at math and coding"
+    ],
+    "verdict": {
+      "level": "great-first-pick",
+      "text": "A zero-pressure starter: if this runs on your machine, everything bigger will too."
+    },
+    "links": [
+      { "label": "Hugging Face model card", "url": "https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct" },
+      { "label": "Get it on Ollama", "url": "https://ollama.com/library/llama3.2" }
+    ],
+    "installHint": "ollama run llama3.2:1b",
+    "rechecked": "2026-10-27"
+  },
+  {
+    "id": "llama-3-2-3b-instruct",
+    "name": "Llama 3.2 3B Instruct",
+    "creator": "Meta",
+    "family": "Llama",
+    "blurb": "The 'just works everywhere' small Llama - a real assistant that still runs on modest laptops.",
+    "params": "3B",
+    "approxDownloadGB": 2,
+    "ramGB": { "min": 4, "max": 8 },
+    "device": "cpu-friendly",
+    "license": "Llama Community License (free with conditions)",
+    "strengths": [
+      "Noticeably smarter than the 1B model",
+      "Reliable for summaries, email drafts, and everyday questions",
+      "Huge ecosystem of community variants"
+    ],
+    "weaknesses": [
+      "Still limited on tricky reasoning and code",
+      "On 4 GB machines it may feel cramped"
+    ],
+    "verdict": {
+      "level": "great-first-pick",
+      "text": "The best first real assistant if you'd rather not buy more RAM."
+    },
+    "links": [
+      { "label": "Hugging Face model card", "url": "https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct" },
+      { "label": "Get it on Ollama", "url": "https://ollama.com/library/llama3.2" }
+    ],
+    "installHint": "ollama run llama3.2",
+    "rechecked": "2026-10-27"
+  },
+  {
+    "id": "phi-4-mini-instruct",
+    "name": "Phi-4-mini Instruct",
+    "creator": "Microsoft",
+    "family": "Phi",
+    "blurb": "Microsoft's compact reasoner - small, quick, and unusually good at math for its size.",
+    "params": "3.8B",
+    "approxDownloadGB": 2.5,
+    "ramGB": { "min": 4, "max": 8 },
+    "device": "cpu-friendly",
+    "license": "MIT (very permissive)",
+    "strengths": [
+      "Strong math and logic for its size class",
+      "Comfortably fast on plain CPUs",
+      "Very open MIT license"
+    ],
+    "weaknesses": [
+      "Tuned for reasoning more than casual chat",
+      "Shorter default context than many peers"
+    ],
+    "verdict": {
+      "level": "solid-pick",
+      "text": "A sharp little brain for homework-style problems on modest hardware."
+    },
+    "links": [
+      { "label": "Hugging Face model card", "url": "https://huggingface.co/microsoft/Phi-4-mini-instruct" },
+      { "label": "Get it on Ollama", "url": "https://ollama.com/library/phi4-mini" }
+    ],
+    "installHint": "ollama run phi4-mini",
+    "rechecked": "2026-10-27"
+  },
+  {
+    "id": "gemma-3-4b-it",
+    "name": "Gemma 3 4B",
+    "creator": "Google",
+    "family": "Gemma",
+    "blurb": "Google's small multimodal Gemma - it reads screenshots and photos, not just text.",
+    "params": "4B",
+    "approxDownloadGB": 3.2,
+    "ramGB": { "min": 8, "max": 16 },
+    "device": "cpu-or-small-gpu",
+    "license": "Gemma Terms of Use (free with conditions)",
+    "strengths": [
+      "Handles images plus text in one model",
+      "128K-token context window",
+      "Big-company polish in a small footprint"
+    ],
+    "weaknesses": [
+      "Outclassed on deep questions by its 12B and 27B siblings",
+      "Hugging Face requires accepting the license before download"
+    ],
+    "verdict": {
+      "level": "great-first-pick",
+      "text": "The easiest way to try image understanding on modest hardware."
+    },
+    "links": [
+      { "label": "Hugging Face model card", "url": "https://huggingface.co/google/gemma-3-4b-it" },
+      { "label": "Get it on Ollama", "url": "https://ollama.com/library/gemma3" }
+    ],
+    "installHint": "ollama run gemma3:4b",
+    "rechecked": "2026-10-27"
+  },
+  {
+    "id": "mistral-7b-instruct-v03",
+    "name": "Mistral 7B Instruct v0.3",
+    "creator": "Mistral AI",
+    "family": "Mistral",
+    "blurb": "The classic that popularized small open models - still dependable, though newer rivals are sharper.",
+    "params": "7B",
+    "approxDownloadGB": 4.4,
+    "ramGB": { "min": 8, "max": 16 },
+    "device": "cpu-or-small-gpu",
+    "license": "Apache 2.0 (very permissive)",
+    "strengths": [
+      "Proven and heavily supported by every local AI app",
+      "Fast for its size",
+      "Permissive Apache 2.0 license"
+    ],
+    "weaknesses": [
+      "Knowledge is dated (this version shipped in 2024)",
+      "Reasoning trails the newer 7-8B generation"
+    ],
+    "verdict": {
+      "level": "solid-pick",
+      "text": "A safe older workhorse - pick a newer 7-8B if you want maximum quality."
+    },
+    "links": [
+      { "label": "Hugging Face model card", "url": "https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3" },
+      { "label": "Get it on Ollama", "url": "https://ollama.com/library/mistral" }
+    ],
+    "installHint": "ollama run mistral",
+    "rechecked": "2026-10-27"
+  },
+  {
+    "id": "qwen2-5-7b-instruct",
+    "name": "Qwen2.5 7B Instruct",
+    "creator": "Qwen (Alibaba)",
+    "family": "Qwen",
+    "blurb": "An excellent all-rounder with unusually strong multilingual and structured-output skills.",
+    "params": "7B",
+    "approxDownloadGB": 4.7,
+    "ramGB": { "min": 8, "max": 16 },
+    "device": "cpu-or-small-gpu",
+    "license": "Apache 2.0 (very permissive)",
+    "strengths": [
+      "Great at following exact instructions, lists, and JSON",
+      "Strong in many non-English languages",
+      "Mature ecosystem of fine-tunes and tools"
+    ],
+    "weaknesses": [
+      "Knowledge is older than it may feel",
+      "Occasionally over-refuses innocent requests"
+    ],
+    "verdict": {
+      "level": "solid-pick",
+      "text": "The dependable hatchback of local AI - not flashy, rarely lets you down."
+    },
+    "links": [
+      { "label": "Hugging Face model card", "url": "https://huggingface.co/Qwen/Qwen2.5-7B-Instruct" },
+      { "label": "Get it on Ollama", "url": "https://ollama.com/library/qwen2.5" }
+    ],
+    "installHint": "ollama run qwen2.5:7b",
+    "rechecked": "2026-10-27"
+  },
+  {
+    "id": "llama-3-1-8b-instruct",
+    "name": "Llama 3.1 8B Instruct",
+    "creator": "Meta",
+    "family": "Llama",
+    "blurb": "The model that made local AI mainstream - balanced, friendly, backed by the biggest ecosystem.",
+    "params": "8B",
+    "approxDownloadGB": 4.7,
+    "ramGB": { "min": 8, "max": 16 },
+    "device": "cpu-or-small-gpu",
+    "license": "Llama Community License (free with conditions)",
+    "strengths": [
+      "All-purpose: chat, writing, light coding",
+      "128K-token context window",
+      "Supported by virtually every local AI tool"
+    ],
+    "weaknesses": [
+      "Knowledge stops around 2023",
+      "Sometimes stiff or wordy in tone"
+    ],
+    "verdict": {
+      "level": "great-first-pick",
+      "text": "If you install one model ever, make it this - the local-AI default."
+    },
+    "links": [
+      { "label": "Hugging Face model card", "url": "https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct" },
+      { "label": "Get it on Ollama", "url": "https://ollama.com/library/llama3.1" }
+    ],
+    "installHint": "ollama run llama3.1",
+    "rechecked": "2026-10-27"
+  },
+  {
+    "id": "qwen3-8b",
+    "name": "Qwen3 8B",
+    "creator": "Qwen (Alibaba)",
+    "family": "Qwen",
+    "blurb": "Qwen's newer all-rounder with a built-in 'think step by step' mode you can switch on or off.",
+    "params": "8B",
+    "approxDownloadGB": 5.2,
+    "ramGB": { "min": 8, "max": 16 },
+    "device": "cpu-or-small-gpu",
+    "license": "Apache 2.0 (very permissive)",
+    "strengths": [
+      "Reasoning toggle: deep-think mode or fast chat mode",
+      "Improved multilingual understanding over Qwen2.5",
+      "Permissive Apache 2.0 license"
+    ],
+    "weaknesses": [
+      "Thinking mode can be slow and chatty on trivial prompts",
+      "Likes to over-explain unless redirected"
+    ],
+    "verdict": {
+      "level": "great-first-pick",
+      "text": "A quality bump over the classic 8B crowd - an easy upgrade pick."
+    },
+    "links": [
+      { "label": "Hugging Face model card", "url": "https://huggingface.co/Qwen/Qwen3-8B" },
+      { "label": "Get it on Ollama", "url": "https://ollama.com/library/qwen3" }
+    ],
+    "installHint": "ollama run qwen3:8b",
+    "rechecked": "2026-10-27"
+  },
+  {
+    "id": "olmo-2-7b-instruct",
+    "name": "OLMo 2 7B Instruct",
+    "creator": "Allen Institute for AI",
+    "family": "OLMo",
+    "blurb": "The fully transparent option - open weights plus open training data, code, and recipes.",
+    "params": "7B",
+    "approxDownloadGB": 4.9,
+    "ramGB": { "min": 8, "max": 16 },
+    "device": "cpu-or-small-gpu",
+    "license": "Apache 2.0 (very permissive)",
+    "strengths": [
+      "Most open lineage available: data, code, and weights are all public",
+      "No licensing puzzles, ever",
+      "Documentation that teaches how it was built"
+    ],
+    "weaknesses": [
+      "Raw quality trails Llama and Qwen at the same size",
+      "Smaller third-party ecosystem"
+    ],
+    "verdict": {
+      "level": "solid-pick",
+      "text": "For tinkerers and privacy purists who value openness as much as output."
+    },
+    "links": [
+      { "label": "Hugging Face model card", "url": "https://huggingface.co/allenai/OLMo-2-1124-7B-Instruct" },
+      { "label": "Get it on Ollama", "url": "https://ollama.com/library/olmo2" }
+    ],
+    "installHint": "ollama run olmo2:7b",
+    "rechecked": "2026-10-27"
+  },
+  {
+    "id": "deepseek-r1-distill-qwen-7b",
+    "name": "DeepSeek-R1 Distill Qwen 7B",
+    "creator": "DeepSeek",
+    "family": "DeepSeek R1",
+    "blurb": "A compact reasoning model that shows its work - math and logic beyond its weight class.",
+    "params": "7B",
+    "approxDownloadGB": 4.7,
+    "ramGB": { "min": 8, "max": 16 },
+    "device": "cpu-or-small-gpu",
+    "license": "MIT (per DeepSeek's model card)",
+    "strengths": [
+      "Readable step-by-step chains of thought",
+      "Strong at math and logic puzzles",
+      "Open MIT-style license on the distill cards"
+    ],
+    "weaknesses": [
+      "Long 'thinking' delays before the answer",
+      "Meta-commentary is not ideal for quick chats"
+    ],
+    "verdict": {
+      "level": "solid-pick",
+      "text": "When you need a thinker, not a chatter."
+    },
+    "links": [
+      { "label": "Hugging Face model card", "url": "https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B" },
+      { "label": "Get it on Ollama", "url": "https://ollama.com/library/deepseek-r1" }
+    ],
+    "installHint": "ollama run deepseek-r1:7b",
+    "rechecked": "2026-10-27"
+  },
+  {
+    "id": "qwen2-5-coder-7b-instruct",
+    "name": "Qwen2.5-Coder 7B Instruct",
+    "creator": "Qwen (Alibaba)",
+    "family": "Qwen",
+    "blurb": "A specialist coding model that punches far above its size - the engine behind many AI code tools.",
+    "params": "7B",
+    "approxDownloadGB": 4.7,
+    "ramGB": { "min": 8, "max": 16 },
+    "device": "cpu-or-small-gpu",
+    "license": "Apache 2.0 (very permissive)",
+    "strengths": [
+      "Excellent code generation and fix suggestions for its size",
+      "Works well inside editor plugins like Continue.dev",
+      "Permissive license for both personal and team use"
+    ],
+    "weaknesses": [
+      "Not a general chat companion",
+      "Narrow focus if you want variety"
+    ],
+    "verdict": {
+      "level": "solid-pick",
+      "text": "The default local coding co-pilot for 8 GB machines."
+    },
+    "links": [
+      { "label": "Hugging Face model card", "url": "https://huggingface.co/Qwen/Qwen2.5-Coder-7B-Instruct" },
+      { "label": "Get it on Ollama", "url": "https://ollama.com/library/qwen2.5-coder" }
+    ],
+    "installHint": "ollama run qwen2.5-coder:7b",
+    "rechecked": "2026-10-27"
+  },
+  {
+    "id": "phi-4-14b",
+    "name": "Phi-4 (14B)",
+    "creator": "Microsoft",
+    "family": "Phi",
+    "blurb": "Microsoft's 14B reasoning gem - graduate-level math and careful logic on a single gaming GPU.",
+    "params": "14B",
+    "approxDownloadGB": 9.1,
+    "ramGB": { "min": 12, "max": 16 },
+    "device": "cpu-or-small-gpu",
+    "license": "MIT (very permissive)",
+    "strengths": [
+      "Top-tier math and logic per gigabyte in its class",
+      "Very open MIT license",
+      "Efficient - fast on one 8-12 GB VRAM GPU"
+    ],
+    "weaknesses": [
+      "Shorter context window than most peers",
+      "Stiffer persona - more precise than warm"
+    ],
+    "verdict": {
+      "level": "solid-pick",
+      "text": "When you want precise answers, not prose."
+    },
+    "links": [
+      { "label": "Hugging Face model card", "url": "https://huggingface.co/microsoft/phi-4" },
+      { "label": "Get it on Ollama", "url": "https://ollama.com/library/phi4" }
+    ],
+    "installHint": "ollama run phi4",
+    "rechecked": "2026-10-27"
+  },
+  {
+    "id": "deepseek-r1-distill-qwen-14b",
+    "name": "DeepSeek-R1 Distill Qwen 14B",
+    "creator": "DeepSeek",
+    "family": "DeepSeek R1",
+    "blurb": "The mid-size deep-thinker - sharper problem solving while still fitting a 16 GB machine.",
+    "params": "14B",
+    "approxDownloadGB": 9,
+    "ramGB": { "min": 12, "max": 16 },
+    "device": "cpu-or-small-gpu",
+    "license": "MIT (per DeepSeek's model card)",
+    "strengths": [
+      "High reasoning quality on consumer hardware",
+      "Readable line-by-line reasoning you can check",
+      "Strong at math, planning, and analysis"
+    ],
+    "weaknesses": [
+      "Slower replies because it thinks out loud",
+      "Long rambles can burn through context"
+    ],
+    "verdict": {
+      "level": "solid-pick",
+      "text": "A study buddy for algebra, proofs, and plan-making."
+    },
+    "links": [
+      { "label": "Hugging Face model card", "url": "https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-14B" },
+      { "label": "Get it on Ollama", "url": "https://ollama.com/library/deepseek-r1" }
+    ],
+    "installHint": "ollama run deepseek-r1:14b",
+    "rechecked": "2026-10-27"
+  },
+  {
+    "id": "llama-3-2-11b-vision-instruct",
+    "name": "Llama 3.2 11B Vision",
+    "creator": "Meta",
+    "family": "Llama",
+    "blurb": "Meta's photo-literate Llama - describe images and read charts and screenshots in plain text.",
+    "params": "11B",
+    "approxDownloadGB": 7.9,
+    "ramGB": { "min": 12, "max": 16 },
+    "device": "cpu-or-small-gpu",
+    "license": "Llama Community License (free with conditions)",
+    "strengths": [
+      "Decent image understanding plus strong text skills",
+      "Useful for describing photos and on-screen charts",
+      "Well supported in the Llama ecosystem"
+    ],
+    "weaknesses": [
+      "Vision skills trail newer dedicated image models",
+      "Image work increases RAM needs"
+    ],
+    "verdict": {
+      "level": "solid-pick",
+      "text": "Adds eyes to your setup without a huge download."
+    },
+    "links": [
+      { "label": "Hugging Face model card", "url": "https://huggingface.co/meta-llama/Llama-3.2-11B-Vision-Instruct" },
+      { "label": "Get it on Ollama", "url": "https://ollama.com/library/llama3.2-vision" }
+    ],
+    "installHint": "ollama run llama3.2-vision",
+    "rechecked": "2026-10-27"
+  },
+  {
+    "id": "gemma-3-12b-it",
+    "name": "Gemma 3 12B",
+    "creator": "Google",
+    "family": "Gemma",
+    "blurb": "The Goldilocks Gemma - noticeably smarter than the small models, still laptop-sized.",
+    "params": "12B",
+    "approxDownloadGB": 8.1,
+    "ramGB": { "min": 12, "max": 16 },
+    "device": "cpu-or-small-gpu",
+    "license": "Gemma Terms of Use (free with conditions)",
+    "strengths": [
+      "Excellent chat and writing quality for its size",
+      "Image input included",
+      "Refined, polite tone out of the box"
+    ],
+    "weaknesses": [
+      "12 GB machines will feel the strain",
+      "Not a reasoning specialist"
+    ],
+    "verdict": {
+      "level": "solid-pick",
+      "text": "The sweet spot once your machine has a little headroom."
+    },
+    "links": [
+      { "label": "Hugging Face model card", "url": "https://huggingface.co/google/gemma-3-12b-it" },
+      { "label": "Get it on Ollama", "url": "https://ollama.com/library/gemma3" }
+    ],
+    "installHint": "ollama run gemma3:12b",
+    "rechecked": "2026-10-27"
+  },
+  {
+    "id": "mistral-small-3-2-24b",
+    "name": "Mistral Small 3.2 (24B)",
+    "creator": "Mistral AI",
+    "family": "Mistral",
+    "blurb": "Mistral's mid-size sweet spot - near-frontier feel with real multimodal eyes and Apache freedom.",
+    "params": "24B",
+    "approxDownloadGB": 15,
+    "ramGB": { "min": 16, "max": 32 },
+    "device": "gpu-recommended",
+    "license": "Apache 2.0 (very permissive)",
+    "strengths": [
+      "Quality that feels close to much bigger rivals",
+      "Handles images as well as text",
+      "Permissive Apache 2.0 license"
+    ],
+    "weaknesses": [
+      "Wants 16 GB of RAM or a decent GPU",
+      "Overkill for light typing tasks"
+    ],
+    "verdict": {
+      "level": "solid-pick",
+      "text": "The upgrade that makes people ask 'wait, this runs at home?'"
+    },
+    "links": [
+      { "label": "Hugging Face model card", "url": "https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506" },
+      { "label": "Get it on Ollama", "url": "https://ollama.com/library/mistral-small3.2" }
+    ],
+    "installHint": "ollama run mistral-small3.2",
+    "rechecked": "2026-10-27"
+  },
+  {
+    "id": "gemma-3-27b-it",
+    "name": "Gemma 3 27B",
+    "creator": "Google",
+    "family": "Gemma",
+    "blurb": "Google's big single-GPU flagship - the chat-quality ceiling for consumer rigs.",
+    "params": "27B",
+    "approxDownloadGB": 17,
+    "ramGB": { "min": 24, "max": 32 },
+    "device": "gpu-recommended",
+    "license": "Gemma Terms of Use (free with conditions)",
+    "strengths": [
+      "Best-in-class open chat quality in this size band",
+      "Image input included",
+      "Plenty of context headroom"
+    ],
+    "weaknesses": [
+      "Needs serious RAM or VRAM",
+      "Slow on CPU alone"
+    ],
+    "verdict": {
+      "level": "for-enthusiasts",
+      "text": "Worth building a machine around - not your first week's model."
+    },
+    "links": [
+      { "label": "Hugging Face model card", "url": "https://huggingface.co/google/gemma-3-27b-it" },
+      { "label": "Get it on Ollama", "url": "https://ollama.com/library/gemma3" }
+    ],
+    "installHint": "ollama run gemma3:27b",
+    "rechecked": "2026-10-27"
+  },
+  {
+    "id": "llama-3-3-70b-instruct",
+    "name": "Llama 3.3 70B Instruct",
+    "creator": "Meta",
+    "family": "Llama",
+    "blurb": "Meta's 70B flagship that trades punches with hosted frontier models - if your hardware is ready.",
+    "params": "70B",
+    "approxDownloadGB": 43,
+    "ramGB": { "min": 32, "max": 64 },
+    "device": "gpu-required",
+    "license": "Llama Community License (free with conditions)",
+    "strengths": [
+      "Near-frontier chat and coding, fully offline",
+      "Strong long-context behavior",
+      "Runs on a single high-end GPU with quantization"
+    ],
+    "weaknesses": [
+      "40+ GB download and a long first run",
+      "Needs 32 GB of RAM minimum and is much happier with 64 or dual GPUs"
+    ],
+    "verdict": {
+      "level": "for-enthusiasts",
+      "text": "The 'build the machine, then be amazed' pick - amazing once, not for your first week."
+    },
+    "links": [
+      { "label": "Hugging Face model card", "url": "https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct" },
+      { "label": "Get it on Ollama", "url": "https://ollama.com/library/llama3.3" }
+    ],
+    "installHint": "ollama run llama3.3",
+    "rechecked": "2026-10-27"
+  }
+]

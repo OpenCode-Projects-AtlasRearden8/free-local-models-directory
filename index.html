@@ -1,0 +1,1368 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="A plain-English directory of notable free-to-run local AI models, filtered by how much RAM your computer has. No downloads bundled, no accounts, no affiliate links." />
+  <title>Free Local AI Models - a beginner-friendly directory</title>
+  <style>
+/* Free Local AI Models - single-file styles (inlined by scripts/build.js). */
+
+:root {
+  --bg: #f5f7fa;
+  --surface: #ffffff;
+  --ink: #1c2430;
+  --muted: #5b6472;
+  --line: #d8dee8;
+  --accent: #4f46e5;
+  --accent-soft: #eef2ff;
+  --great-ink: #14532d;
+  --great-bg: #ecfdf3;
+  --great-line: #a7d7b9;
+  --solid-ink: #1e3a8a;
+  --solid-bg: #eff6ff;
+  --solid-line: #b6cdf7;
+  --heavy-ink: #7c4a03;
+  --heavy-bg: #fffbeb;
+  --heavy-line: #f0d9a8;
+  --code-bg: #f1f5f9;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #12151c;
+    --surface: #1a1f29;
+    --ink: #e7ecf4;
+    --muted: #9aa4b2;
+    --line: #2c3442;
+    --accent: #8b93ff;
+    --accent-soft: #232848;
+    --great-ink: #b3ecc8;
+    --great-bg: #14291d;
+    --great-line: #2f5d40;
+    --solid-ink: #bcd3ff;
+    --solid-bg: #17253f;
+    --solid-line: #315180;
+    --heavy-ink: #f3d39a;
+    --heavy-bg: #2a2113;
+    --heavy-line: #6b5527;
+    --code-bg: #232a36;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.55;
+}
+
+.site-header {
+  border-top: 4px solid var(--accent);
+  background: var(--surface);
+  padding: 1.6rem 1.2rem 1.2rem;
+  text-align: center;
+}
+
+.site-header .kicker {
+  margin: 0;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.site-header h1 {
+  margin: 0.35rem 0 0.4rem;
+  font-size: 1.9rem;
+  letter-spacing: -0.02em;
+}
+
+.site-header .tagline {
+  margin: 0 auto;
+  max-width: 46rem;
+  color: var(--muted);
+}
+
+.site-header .peers {
+  margin: 0.7rem auto 0;
+  max-width: 46rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+main {
+  max-width: 78rem;
+  margin: 0 auto;
+  padding: 0 1.2rem 2.5rem;
+}
+
+.intro {
+  background: var(--accent-soft);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 0.9rem 1.1rem;
+  margin: 1.4rem 0;
+  font-size: 0.95rem;
+}
+
+.intro ol { margin: 0.4rem 0 0.5rem; padding-left: 1.4rem; }
+.intro .quiet { margin: 0; color: var(--muted); font-size: 0.85rem; }
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: flex-end;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 0.9rem 1.1rem;
+  margin: 1.2rem 0 0.6rem;
+}
+
+.control-group { display: flex; flex-direction: column; gap: 0.25rem; }
+.control-grow { flex: 1 1 14rem; }
+
+.controls label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.controls select,
+.controls input {
+  font: inherit;
+  color: var(--ink);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  padding: 0.45rem 0.6rem;
+  min-width: 12rem;
+}
+
+.control-grow input { width: 100%; }
+.controls select:focus,
+.controls input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+.result-count { color: var(--muted); font-size: 0.9rem; margin: 0.2rem 0 0.9rem; }
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(21rem, 1fr));
+  gap: 1.1rem;
+  align-items: start;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  box-shadow: 0 1px 3px rgba(16, 24, 40, 0.06);
+}
+
+.card-head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.card-head h3 { margin: 0; font-size: 1.15rem; letter-spacing: -0.01em; }
+
+.chip {
+  align-self: flex-start;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.15rem 0.6rem;
+}
+
+.blurb { margin: 0; color: var(--muted); font-size: 0.92rem; }
+
+.stats {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
+  gap: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+}
+
+.stats .stat-label {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.stats b { font-weight: 600; }
+
+.tradeoffs {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.2rem 1.2rem;
+  font-size: 0.875rem;
+}
+
+@media (min-width: 44rem) {
+  .tradeoffs { grid-template-columns: 1fr 1fr; }
+}
+
+.tradeoffs h4 {
+  margin: 0 0 0.25rem;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+}
+
+.tradeoffs ul { margin: 0; padding-left: 1.1rem; }
+.tradeoffs li { margin: 0.15rem 0; }
+.tradeoffs .plus li::marker { content: "+  "; color: var(--accent); }
+.tradeoffs .minus li::marker { content: "-  "; color: var(--muted); }
+
+.verdict {
+  margin: 0;
+  border-radius: 10px;
+  padding: 0.55rem 0.75rem;
+  font-size: 0.88rem;
+}
+
+.verdict b { display: block; }
+.verdict span { opacity: 0.92; }
+
+.verdict-great { background: var(--great-bg); color: var(--great-ink); border: 1px solid var(--great-line); }
+.verdict-solid { background: var(--solid-bg); color: var(--solid-ink); border: 1px solid var(--solid-line); }
+.verdict-heavy { background: var(--heavy-bg); color: var(--heavy-ink); border: 1px solid var(--heavy-line); }
+
+.install {
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+.install code {
+  display: inline-block;
+  background: var(--code-bg);
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.85rem;
+  user-select: all;
+}
+
+.card-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  border-top: 1px solid var(--line);
+  padding-top: 0.7rem;
+  margin-top: auto;
+  font-size: 0.85rem;
+}
+
+.card-foot a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.card-foot a:hover,
+.card-foot a:focus { text-decoration: underline; }
+
+.checked { color: var(--muted); font-size: 0.78rem; margin-left: auto; }
+
+.empty-state {
+  background: var(--surface);
+  border: 1px dashed var(--line);
+  border-radius: 14px;
+  padding: 2.2rem 1.2rem;
+  text-align: center;
+  color: var(--muted);
+  grid-column: 1 / -1;
+}
+
+.site-footer {
+  border-top: 1px solid var(--line);
+  background: var(--surface);
+  padding: 1.4rem 1.2rem 2rem;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.site-footer p { max-width: 44rem; margin: 0.4rem auto; }
+.site-footer a { color: var(--accent); }
+
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <p class="kicker">A plain-English companion from dylanasdale.github.io</p>
+    <h1>Free Local AI Models</h1>
+    <p class="tagline">Real AI assistants you can download and run entirely on your own computer - no subscription, no internet connection needed once they are installed. Pick your RAM budget below, look for the green "Great first pick" badge, and copy one line to install.</p>
+    <p class="peers">Companion resource to the <b>local AI handbook</b> (step-by-step setup how-to) and the <b>free AI tools directory</b> (free tools that run in your browser, not on your machine).</p>
+  </header>
+
+  <main>
+    <section class="intro" aria-label="How to use this directory">
+      <ol>
+        <li>Choose the RAM your computer has (it decides which models fit).</li>
+        <li>Open a model's download page, or copy its one-line install command.</li>
+        <li>Ask it something you actually care about.</li>
+      </ol>
+      <p class="quiet">Every model here is free to download and run offline. Download sizes are approximate files in a common 4-bit ("Q4") format - always confirm current sizes and requirements on the linked model page.</p>
+    </section>
+
+    <div id="app-root"></div>
+  </main>
+
+  <footer class="site-footer">
+    <p><b>Nothing here is bundled or hosted.</b> Links only go to the model's official download home (Hugging Face or Ollama). There are no affiliate links, accounts, keys, or tracking on this page - it is a single offline HTML file.</p>
+    <p>Models change fast. Each card shows the date it was last rechecked; when in doubt, trust the numbers on the linked page over the numbers on this page.</p>
+    <p>Distributed under the MIT License. Copyright (c) 2026 Asdale Dynamics, LLC. Part of Dylan Asdale's beginner-friendly AI guide collection. Not affiliated with Meta, Google, Microsoft, Mistral AI, Alibaba, DeepSeek, Hugging Face, or the Allen Institute for AI; model names are trademarks of their owners. Educational information only.</p>
+  </footer>
+
+  <script id="models-data" type="application/json">
+[
+  {
+    "id": "smollm2-1-7b-instruct",
+    "name": "SmolLM2 1.7B Instruct",
+    "creator": "Hugging Face",
+    "family": "SmolLM",
+    "blurb": "A pocket-size assistant that fits almost any computer, even a very old one.",
+    "params": "1.7B",
+    "approxDownloadGB": 1.8,
+    "ramGB": {
+      "min": 4,
+      "max": 8
+    },
+    "device": "cpu-friendly",
+    "license": "Apache 2.0 (very permissive)",
+    "strengths": [
+      "Runs on almost anything, including CPU-only laptops and mini PCs",
+      "Quick replies, low battery cost, tiny download",
+      "Fully open Apache 2.0 - no strings attached"
+    ],
+    "weaknesses": [
+      "Shallow answers on hard questions",
+      "Loses the thread in long conversations",
+      "Can be confidently wrong"
+    ],
+    "verdict": {
+      "level": "great-first-pick",
+      "text": "If your machine struggled with the last decade, start here - proof that your laptop can still run AI."
+    },
+    "links": [
+      {
+        "label": "Hugging Face model card",
+        "url": "https://huggingface.co/HuggingFaceTB/SmolLM2-1.7B-Instruct"
+      },
+      {
+        "label": "Get it on Ollama",
+        "url": "https://ollama.com/library/smollm2"
+      }
+    ],
+    "installHint": "ollama run smollm2:1.7b",
+    "rechecked": "2026-10-27"
+  },
+  {
+    "id": "llama-3-2-1b-instruct",
+    "name": "Llama 3.2 1B Instruct",
+    "creator": "Meta",
+    "family": "Llama",
+    "blurb": "Meta's smallest Llama, built for phones and old laptops - handy for quick edits and summaries.",
+    "params": "1B",
+    "approxDownloadGB": 1.3,
+    "ramGB": {
+      "min": 4,
+      "max": 8
+    },
+    "device": "cpu-friendly",
+    "license": "Llama Community License (free with conditions)",
+    "strengths": [
+      "Tiny download that installs in minutes",
+      "Good at short rewrites, summaries, and quick drafts",
+      "Works on surprisingly little hardware"
+    ],
+    "weaknesses": [
+      "Makes things up more often than bigger models",
+      "Weak at math and coding"
+    ],
+    "verdict": {
+      "level": "great-first-pick",
+      "text": "A zero-pressure starter: if this runs on your machine, everything bigger will too."
+    },
+    "links": [
+      {
+        "label": "Hugging Face model card",
+        "url": "https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct"
+      },
+      {
+        "label": "Get it on Ollama",
+        "url": "https://ollama.com/library/llama3.2"
+      }
+    ],
+    "installHint": "ollama run llama3.2:1b",
+    "rechecked": "2026-10-27"
+  },
+  {
+    "id": "llama-3-2-3b-instruct",
+    "name": "Llama 3.2 3B Instruct",
+    "creator": "Meta",
+    "family": "Llama",
+    "blurb": "The 'just works everywhere' small Llama - a real assistant that still runs on modest laptops.",
+    "params": "3B",
+    "approxDownloadGB": 2,
+    "ramGB": {
+      "min": 4,
+      "max": 8
+    },
+    "device": "cpu-friendly",
+    "license": "Llama Community License (free with conditions)",
+    "strengths": [
+      "Noticeably smarter than the 1B model",
+      "Reliable for summaries, email drafts, and everyday questions",
+      "Huge ecosystem of community variants"
+    ],
+    "weaknesses": [
+      "Still limited on tricky reasoning and code",
+      "On 4 GB machines it may feel cramped"
+    ],
+    "verdict": {
+      "level": "great-first-pick",
+      "text": "The best first real assistant if you'd rather not buy more RAM."
+    },
+    "links": [
+      {
+        "label": "Hugging Face model card",
+        "url": "https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct"
+      },
+      {
+        "label": "Get it on Ollama",
+        "url": "https://ollama.com/library/llama3.2"
+      }
+    ],
+    "installHint": "ollama run llama3.2",
+    "rechecked": "2026-10-27"
+  },
+  {
+    "id": "phi-4-mini-instruct",
+    "name": "Phi-4-mini Instruct",
+    "creator": "Microsoft",
+    "family": "Phi",
+    "blurb": "Microsoft's compact reasoner - small, quick, and unusually good at math for its size.",
+    "params": "3.8B",
+    "approxDownloadGB": 2.5,
+    "ramGB": {
+      "min": 4,
+      "max": 8
+    },
+    "device": "cpu-friendly",
+    "license": "MIT (very permissive)",
+    "strengths": [
+      "Strong math and logic for its size class",
+      "Comfortably fast on plain CPUs",
+      "Very open MIT license"
+    ],
+    "weaknesses": [
+      "Tuned for reasoning more than casual chat",
+      "Shorter default context than many peers"
+    ],
+    "verdict": {
+      "level": "solid-pick",
+      "text": "A sharp little brain for homework-style problems on modest hardware."
+    },
+    "links": [
+      {
+        "label": "Hugging Face model card",
+        "url": "https://huggingface.co/microsoft/Phi-4-mini-instruct"
+      },
+      {
+        "label": "Get it on Ollama",
+        "url": "https://ollama.com/library/phi4-mini"
+      }
+    ],
+    "installHint": "ollama run phi4-mini",
+    "rechecked": "2026-10-27"
+  },
+  {
+    "id": "gemma-3-4b-it",
+    "name": "Gemma 3 4B",
+    "creator": "Google",
+    "family": "Gemma",
+    "blurb": "Google's small multimodal Gemma - it reads screenshots and photos, not just text.",
+    "params": "4B",
+    "approxDownloadGB": 3.2,
+    "ramGB": {
+      "min": 8,
+      "max": 16
+    },
+    "device": "cpu-or-small-gpu",
+    "license": "Gemma Terms of Use (free with conditions)",
+    "strengths": [
+      "Handles images plus text in one model",
+      "128K-token context window",
+      "Big-company polish in a small footprint"
+    ],
+    "weaknesses": [
+      "Outclassed on deep questions by its 12B and 27B siblings",
+      "Hugging Face requires accepting the license before download"
+    ],
+    "verdict": {
+      "level": "great-first-pick",
+      "text": "The easiest way to try image understanding on modest hardware."
+    },
+    "links": [
+      {
+        "label": "Hugging Face model card",
+        "url": "https://huggingface.co/google/gemma-3-4b-it"
+      },
+      {
+        "label": "Get it on Ollama",
+        "url": "https://ollama.com/library/gemma3"
+      }
+    ],
+    "installHint": "ollama run gemma3:4b",
+    "rechecked": "2026-10-27"
+  },
+  {
+    "id": "mistral-7b-instruct-v03",
+    "name": "Mistral 7B Instruct v0.3",
+    "creator": "Mistral AI",
+    "family": "Mistral",
+    "blurb": "The classic that popularized small open models - still dependable, though newer rivals are sharper.",
+    "params": "7B",
+    "approxDownloadGB": 4.4,
+    "ramGB": {
+      "min": 8,
+      "max": 16
+    },
+    "device": "cpu-or-small-gpu",
+    "license": "Apache 2.0 (very permissive)",
+    "strengths": [
+      "Proven and heavily supported by every local AI app",
+      "Fast for its size",
+      "Permissive Apache 2.0 license"
+    ],
+    "weaknesses": [
+      "Knowledge is dated (this version shipped in 2024)",
+      "Reasoning trails the newer 7-8B generation"
+    ],
+    "verdict": {
+      "level": "solid-pick",
+      "text": "A safe older workhorse - pick a newer 7-8B if you want maximum quality."
+    },
+    "links": [
+      {
+        "label": "Hugging Face model card",
+        "url": "https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3"
+      },
+      {
+        "label": "Get it on Ollama",
+        "url": "https://ollama.com/library/mistral"
+      }
+    ],
+    "installHint": "ollama run mistral",
+    "rechecked": "2026-10-27"
+  },
+  {
+    "id": "qwen2-5-7b-instruct",
+    "name": "Qwen2.5 7B Instruct",
+    "creator": "Qwen (Alibaba)",
+    "family": "Qwen",
+    "blurb": "An excellent all-rounder with unusually strong multilingual and structured-output skills.",
+    "params": "7B",
+    "approxDownloadGB": 4.7,
+    "ramGB": {
+      "min": 8,
+      "max": 16
+    },
+    "device": "cpu-or-small-gpu",
+    "license": "Apache 2.0 (very permissive)",
+    "strengths": [
+      "Great at following exact instructions, lists, and JSON",
+      "Strong in many non-English languages",
+      "Mature ecosystem of fine-tunes and tools"
+    ],
+    "weaknesses": [
+      "Knowledge is older than it may feel",
+      "Occasionally over-refuses innocent requests"
+    ],
+    "verdict": {
+      "level": "solid-pick",
+      "text": "The dependable hatchback of local AI - not flashy, rarely lets you down."
+    },
+    "links": [
+      {
+        "label": "Hugging Face model card",
+        "url": "https://huggingface.co/Qwen/Qwen2.5-7B-Instruct"
+      },
+      {
+        "label": "Get it on Ollama",
+        "url": "https://ollama.com/library/qwen2.5"
+      }
+    ],
+    "installHint": "ollama run qwen2.5:7b",
+    "rechecked": "2026-10-27"
+  },
+  {
+    "id": "llama-3-1-8b-instruct",
+    "name": "Llama 3.1 8B Instruct",
+    "creator": "Meta",
+    "family": "Llama",
+    "blurb": "The model that made local AI mainstream - balanced, friendly, backed by the biggest ecosystem.",
+    "params": "8B",
+    "approxDownloadGB": 4.7,
+    "ramGB": {
+      "min": 8,
+      "max": 16
+    },
+    "device": "cpu-or-small-gpu",
+    "license": "Llama Community License (free with conditions)",
+    "strengths": [
+      "All-purpose: chat, writing, light coding",
+      "128K-token context window",
+      "Supported by virtually every local AI tool"
+    ],
+    "weaknesses": [
+      "Knowledge stops around 2023",
+      "Sometimes stiff or wordy in tone"
+    ],
+    "verdict": {
+      "level": "great-first-pick",
+      "text": "If you install one model ever, make it this - the local-AI default."
+    },
+    "links": [
+      {
+        "label": "Hugging Face model card",
+        "url": "https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct"
+      },
+      {
+        "label": "Get it on Ollama",
+        "url": "https://ollama.com/library/llama3.1"
+      }
+    ],
+    "installHint": "ollama run llama3.1",
+    "rechecked": "2026-10-27"
+  },
+  {
+    "id": "qwen3-8b",
+    "name": "Qwen3 8B",
+    "creator": "Qwen (Alibaba)",
+    "family": "Qwen",
+    "blurb": "Qwen's newer all-rounder with a built-in 'think step by step' mode you can switch on or off.",
+    "params": "8B",
+    "approxDownloadGB": 5.2,
+    "ramGB": {
+      "min": 8,
+      "max": 16
+    },
+    "device": "cpu-or-small-gpu",
+    "license": "Apache 2.0 (very permissive)",
+    "strengths": [
+      "Reasoning toggle: deep-think mode or fast chat mode",
+      "Improved multilingual understanding over Qwen2.5",
+      "Permissive Apache 2.0 license"
+    ],
+    "weaknesses": [
+      "Thinking mode can be slow and chatty on trivial prompts",
+      "Likes to over-explain unless redirected"
+    ],
+    "verdict": {
+      "level": "great-first-pick",
+      "text": "A quality bump over the classic 8B crowd - an easy upgrade pick."
+    },
+    "links": [
+      {
+        "label": "Hugging Face model card",
+        "url": "https://huggingface.co/Qwen/Qwen3-8B"
+      },
+      {
+        "label": "Get it on Ollama",
+        "url": "https://ollama.com/library/qwen3"
+      }
+    ],
+    "installHint": "ollama run qwen3:8b",
+    "rechecked": "2026-10-27"
+  },
+  {
+    "id": "olmo-2-7b-instruct",
+    "name": "OLMo 2 7B Instruct",
+    "creator": "Allen Institute for AI",
+    "family": "OLMo",
+    "blurb": "The fully transparent option - open weights plus open training data, code, and recipes.",
+    "params": "7B",
+    "approxDownloadGB": 4.9,
+    "ramGB": {
+      "min": 8,
+      "max": 16
+    },
+    "device": "cpu-or-small-gpu",
+    "license": "Apache 2.0 (very permissive)",
+    "strengths": [
+      "Most open lineage available: data, code, and weights are all public",
+      "No licensing puzzles, ever",
+      "Documentation that teaches how it was built"
+    ],
+    "weaknesses": [
+      "Raw quality trails Llama and Qwen at the same size",
+      "Smaller third-party ecosystem"
+    ],
+    "verdict": {
+      "level": "solid-pick",
+      "text": "For tinkerers and privacy purists who value openness as much as output."
+    },
+    "links": [
+      {
+        "label": "Hugging Face model card",
+        "url": "https://huggingface.co/allenai/OLMo-2-1124-7B-Instruct"
+      },
+      {
+        "label": "Get it on Ollama",
+        "url": "https://ollama.com/library/olmo2"
+      }
+    ],
+    "installHint": "ollama run olmo2:7b",
+    "rechecked": "2026-10-27"
+  },
+  {
+    "id": "deepseek-r1-distill-qwen-7b",
+    "name": "DeepSeek-R1 Distill Qwen 7B",
+    "creator": "DeepSeek",
+    "family": "DeepSeek R1",
+    "blurb": "A compact reasoning model that shows its work - math and logic beyond its weight class.",
+    "params": "7B",
+    "approxDownloadGB": 4.7,
+    "ramGB": {
+      "min": 8,
+      "max": 16
+    },
+    "device": "cpu-or-small-gpu",
+    "license": "MIT (per DeepSeek's model card)",
+    "strengths": [
+      "Readable step-by-step chains of thought",
+      "Strong at math and logic puzzles",
+      "Open MIT-style license on the distill cards"
+    ],
+    "weaknesses": [
+      "Long 'thinking' delays before the answer",
+      "Meta-commentary is not ideal for quick chats"
+    ],
+    "verdict": {
+      "level": "solid-pick",
+      "text": "When you need a thinker, not a chatter."
+    },
+    "links": [
+      {
+        "label": "Hugging Face model card",
+        "url": "https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B"
+      },
+      {
+        "label": "Get it on Ollama",
+        "url": "https://ollama.com/library/deepseek-r1"
+      }
+    ],
+    "installHint": "ollama run deepseek-r1:7b",
+    "rechecked": "2026-10-27"
+  },
+  {
+    "id": "qwen2-5-coder-7b-instruct",
+    "name": "Qwen2.5-Coder 7B Instruct",
+    "creator": "Qwen (Alibaba)",
+    "family": "Qwen",
+    "blurb": "A specialist coding model that punches far above its size - the engine behind many AI code tools.",
+    "params": "7B",
+    "approxDownloadGB": 4.7,
+    "ramGB": {
+      "min": 8,
+      "max": 16
+    },
+    "device": "cpu-or-small-gpu",
+    "license": "Apache 2.0 (very permissive)",
+    "strengths": [
+      "Excellent code generation and fix suggestions for its size",
+      "Works well inside editor plugins like Continue.dev",
+      "Permissive license for both personal and team use"
+    ],
+    "weaknesses": [
+      "Not a general chat companion",
+      "Narrow focus if you want variety"
+    ],
+    "verdict": {
+      "level": "solid-pick",
+      "text": "The default local coding co-pilot for 8 GB machines."
+    },
+    "links": [
+      {
+        "label": "Hugging Face model card",
+        "url": "https://huggingface.co/Qwen/Qwen2.5-Coder-7B-Instruct"
+      },
+      {
+        "label": "Get it on Ollama",
+        "url": "https://ollama.com/library/qwen2.5-coder"
+      }
+    ],
+    "installHint": "ollama run qwen2.5-coder:7b",
+    "rechecked": "2026-10-27"
+  },
+  {
+    "id": "phi-4-14b",
+    "name": "Phi-4 (14B)",
+    "creator": "Microsoft",
+    "family": "Phi",
+    "blurb": "Microsoft's 14B reasoning gem - graduate-level math and careful logic on a single gaming GPU.",
+    "params": "14B",
+    "approxDownloadGB": 9.1,
+    "ramGB": {
+      "min": 12,
+      "max": 16
+    },
+    "device": "cpu-or-small-gpu",
+    "license": "MIT (very permissive)",
+    "strengths": [
+      "Top-tier math and logic per gigabyte in its class",
+      "Very open MIT license",
+      "Efficient - fast on one 8-12 GB VRAM GPU"
+    ],
+    "weaknesses": [
+      "Shorter context window than most peers",
+      "Stiffer persona - more precise than warm"
+    ],
+    "verdict": {
+      "level": "solid-pick",
+      "text": "When you want precise answers, not prose."
+    },
+    "links": [
+      {
+        "label": "Hugging Face model card",
+        "url": "https://huggingface.co/microsoft/phi-4"
+      },
+      {
+        "label": "Get it on Ollama",
+        "url": "https://ollama.com/library/phi4"
+      }
+    ],
+    "installHint": "ollama run phi4",
+    "rechecked": "2026-10-27"
+  },
+  {
+    "id": "deepseek-r1-distill-qwen-14b",
+    "name": "DeepSeek-R1 Distill Qwen 14B",
+    "creator": "DeepSeek",
+    "family": "DeepSeek R1",
+    "blurb": "The mid-size deep-thinker - sharper problem solving while still fitting a 16 GB machine.",
+    "params": "14B",
+    "approxDownloadGB": 9,
+    "ramGB": {
+      "min": 12,
+      "max": 16
+    },
+    "device": "cpu-or-small-gpu",
+    "license": "MIT (per DeepSeek's model card)",
+    "strengths": [
+      "High reasoning quality on consumer hardware",
+      "Readable line-by-line reasoning you can check",
+      "Strong at math, planning, and analysis"
+    ],
+    "weaknesses": [
+      "Slower replies because it thinks out loud",
+      "Long rambles can burn through context"
+    ],
+    "verdict": {
+      "level": "solid-pick",
+      "text": "A study buddy for algebra, proofs, and plan-making."
+    },
+    "links": [
+      {
+        "label": "Hugging Face model card",
+        "url": "https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-14B"
+      },
+      {
+        "label": "Get it on Ollama",
+        "url": "https://ollama.com/library/deepseek-r1"
+      }
+    ],
+    "installHint": "ollama run deepseek-r1:14b",
+    "rechecked": "2026-10-27"
+  },
+  {
+    "id": "llama-3-2-11b-vision-instruct",
+    "name": "Llama 3.2 11B Vision",
+    "creator": "Meta",
+    "family": "Llama",
+    "blurb": "Meta's photo-literate Llama - describe images and read charts and screenshots in plain text.",
+    "params": "11B",
+    "approxDownloadGB": 7.9,
+    "ramGB": {
+      "min": 12,
+      "max": 16
+    },
+    "device": "cpu-or-small-gpu",
+    "license": "Llama Community License (free with conditions)",
+    "strengths": [
+      "Decent image understanding plus strong text skills",
+      "Useful for describing photos and on-screen charts",
+      "Well supported in the Llama ecosystem"
+    ],
+    "weaknesses": [
+      "Vision skills trail newer dedicated image models",
+      "Image work increases RAM needs"
+    ],
+    "verdict": {
+      "level": "solid-pick",
+      "text": "Adds eyes to your setup without a huge download."
+    },
+    "links": [
+      {
+        "label": "Hugging Face model card",
+        "url": "https://huggingface.co/meta-llama/Llama-3.2-11B-Vision-Instruct"
+      },
+      {
+        "label": "Get it on Ollama",
+        "url": "https://ollama.com/library/llama3.2-vision"
+      }
+    ],
+    "installHint": "ollama run llama3.2-vision",
+    "rechecked": "2026-10-27"
+  },
+  {
+    "id": "gemma-3-12b-it",
+    "name": "Gemma 3 12B",
+    "creator": "Google",
+    "family": "Gemma",
+    "blurb": "The Goldilocks Gemma - noticeably smarter than the small models, still laptop-sized.",
+    "params": "12B",
+    "approxDownloadGB": 8.1,
+    "ramGB": {
+      "min": 12,
+      "max": 16
+    },
+    "device": "cpu-or-small-gpu",
+    "license": "Gemma Terms of Use (free with conditions)",
+    "strengths": [
+      "Excellent chat and writing quality for its size",
+      "Image input included",
+      "Refined, polite tone out of the box"
+    ],
+    "weaknesses": [
+      "12 GB machines will feel the strain",
+      "Not a reasoning specialist"
+    ],
+    "verdict": {
+      "level": "solid-pick",
+      "text": "The sweet spot once your machine has a little headroom."
+    },
+    "links": [
+      {
+        "label": "Hugging Face model card",
+        "url": "https://huggingface.co/google/gemma-3-12b-it"
+      },
+      {
+        "label": "Get it on Ollama",
+        "url": "https://ollama.com/library/gemma3"
+      }
+    ],
+    "installHint": "ollama run gemma3:12b",
+    "rechecked": "2026-10-27"
+  },
+  {
+    "id": "mistral-small-3-2-24b",
+    "name": "Mistral Small 3.2 (24B)",
+    "creator": "Mistral AI",
+    "family": "Mistral",
+    "blurb": "Mistral's mid-size sweet spot - near-frontier feel with real multimodal eyes and Apache freedom.",
+    "params": "24B",
+    "approxDownloadGB": 15,
+    "ramGB": {
+      "min": 16,
+      "max": 32
+    },
+    "device": "gpu-recommended",
+    "license": "Apache 2.0 (very permissive)",
+    "strengths": [
+      "Quality that feels close to much bigger rivals",
+      "Handles images as well as text",
+      "Permissive Apache 2.0 license"
+    ],
+    "weaknesses": [
+      "Wants 16 GB of RAM or a decent GPU",
+      "Overkill for light typing tasks"
+    ],
+    "verdict": {
+      "level": "solid-pick",
+      "text": "The upgrade that makes people ask 'wait, this runs at home?'"
+    },
+    "links": [
+      {
+        "label": "Hugging Face model card",
+        "url": "https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506"
+      },
+      {
+        "label": "Get it on Ollama",
+        "url": "https://ollama.com/library/mistral-small3.2"
+      }
+    ],
+    "installHint": "ollama run mistral-small3.2",
+    "rechecked": "2026-10-27"
+  },
+  {
+    "id": "gemma-3-27b-it",
+    "name": "Gemma 3 27B",
+    "creator": "Google",
+    "family": "Gemma",
+    "blurb": "Google's big single-GPU flagship - the chat-quality ceiling for consumer rigs.",
+    "params": "27B",
+    "approxDownloadGB": 17,
+    "ramGB": {
+      "min": 24,
+      "max": 32
+    },
+    "device": "gpu-recommended",
+    "license": "Gemma Terms of Use (free with conditions)",
+    "strengths": [
+      "Best-in-class open chat quality in this size band",
+      "Image input included",
+      "Plenty of context headroom"
+    ],
+    "weaknesses": [
+      "Needs serious RAM or VRAM",
+      "Slow on CPU alone"
+    ],
+    "verdict": {
+      "level": "for-enthusiasts",
+      "text": "Worth building a machine around - not your first week's model."
+    },
+    "links": [
+      {
+        "label": "Hugging Face model card",
+        "url": "https://huggingface.co/google/gemma-3-27b-it"
+      },
+      {
+        "label": "Get it on Ollama",
+        "url": "https://ollama.com/library/gemma3"
+      }
+    ],
+    "installHint": "ollama run gemma3:27b",
+    "rechecked": "2026-10-27"
+  },
+  {
+    "id": "llama-3-3-70b-instruct",
+    "name": "Llama 3.3 70B Instruct",
+    "creator": "Meta",
+    "family": "Llama",
+    "blurb": "Meta's 70B flagship that trades punches with hosted frontier models - if your hardware is ready.",
+    "params": "70B",
+    "approxDownloadGB": 43,
+    "ramGB": {
+      "min": 32,
+      "max": 64
+    },
+    "device": "gpu-required",
+    "license": "Llama Community License (free with conditions)",
+    "strengths": [
+      "Near-frontier chat and coding, fully offline",
+      "Strong long-context behavior",
+      "Runs on a single high-end GPU with quantization"
+    ],
+    "weaknesses": [
+      "40+ GB download and a long first run",
+      "Needs 32 GB of RAM minimum and is much happier with 64 or dual GPUs"
+    ],
+    "verdict": {
+      "level": "for-enthusiasts",
+      "text": "The 'build the machine, then be amazed' pick - amazing once, not for your first week."
+    },
+    "links": [
+      {
+        "label": "Hugging Face model card",
+        "url": "https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct"
+      },
+      {
+        "label": "Get it on Ollama",
+        "url": "https://ollama.com/library/llama3.3"
+      }
+    ],
+    "installHint": "ollama run llama3.3",
+    "rechecked": "2026-10-27"
+  }
+]
+  </script>
+  <script>
+/* Free Local AI Models - page logic.
+   Written as a small UMD-ish module so the same file can run in the
+   browser (DOM wiring) and in Node (unit tests for the pure functions). */
+(function (global) {
+  'use strict';
+
+  var RAM_OPTIONS = [
+    { value: 'any', label: 'Any RAM', ceiling: null },
+    { value: '4', label: 'Runs on 4 GB or less', ceiling: 4 },
+    { value: '8', label: 'Runs on 8 GB (typical laptop)', ceiling: 8 },
+    { value: '16', label: 'Runs on 16 GB (desktop / gaming laptop)', ceiling: 16 },
+    { value: '32', label: 'Runs on 32 GB', ceiling: 32 },
+    { value: '64', label: 'Runs on 64 GB or more', ceiling: 64 }
+  ];
+
+  var VERDICT_META = {
+    'great-first-pick': { label: 'Great first pick', className: 'verdict-great' },
+    'solid-pick': { label: 'Solid pick', className: 'verdict-solid' },
+    'for-enthusiasts': { label: 'For hardware enthusiasts', className: 'verdict-heavy' }
+  };
+
+  var DEVICE_META = {
+    'cpu-friendly': 'CPU-friendly (no graphics card needed)',
+    'cpu-or-small-gpu': 'CPU or a small GPU',
+    'gpu-recommended': 'GPU strongly recommended',
+    'gpu-required': 'Needs a real GPU'
+  };
+
+  var LINK_HOSTS = ['huggingface.co', 'www.huggingface.co', 'ollama.com'];
+
+  function escapeHtml(value) {
+    return String(value)
+      .replace(/&/g, '&' + 'amp;')
+      .replace(/</g, '&' + 'lt;')
+      .replace(/>/g, '&' + 'gt;')
+      .replace(/"/g, '&' + 'quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  function formatRam(model) {
+    var ram = model.ramGB;
+    if (ram.min === ram.max) return ram.min + ' GB';
+    return ram.min + '-' + ram.max + ' GB';
+  }
+
+  function formatSize(model) {
+    var gb = model.approxDownloadGB;
+    var rounded = gb >= 10 ? Math.round(gb) : Math.round(gb * 10) / 10;
+    return '~' + rounded + ' GB download';
+  }
+
+  function matchesRam(model, ceiling) {
+    if (ceiling === null || ceiling === undefined) return true;
+    return model.ramGB.min <= ceiling;
+  }
+
+  function matchesQuery(model, query) {
+    if (!query) return true;
+    var haystack = [model.name, model.family, model.creator, model.blurb, model.params, model.license]
+      .join(' ')
+      .toLowerCase();
+    return haystack.indexOf(query.toLowerCase()) !== -1;
+  }
+
+  function filterModels(models, state) {
+    var ceiling = state && state.ram ? Number(state.ram) : null;
+    return models.filter(function (model) {
+      var ramOk = state.ram === 'any' || state.ram === undefined || state.ram === '' || matchesRam(model, ceiling);
+      var familyOk = !state.family || state.family === 'all' || model.family === state.family;
+      return ramOk && familyOk && matchesQuery(model, state.q || '');
+    });
+  }
+
+  function sortModels(models) {
+    return models
+      .slice()
+      .sort(function (a, b) {
+        if (a.approxDownloadGB !== b.approxDownloadGB) return a.approxDownloadGB - b.approxDownloadGB;
+        return a.name < b.name ? -1 : a.name > b.name ? 1 : 0;
+      });
+  }
+
+  function families(models) {
+    var seen = {};
+    var list = [];
+    models.forEach(function (model) {
+      if (!seen[model.family]) {
+        seen[model.family] = true;
+        list.push(model.family);
+      }
+    });
+    return list.sort();
+  }
+
+  function verifyLinkHosts(model) {
+    return model.links.every(function (link) {
+      var host = String(link.url).replace(/^https?:\/\//, '').split('/')[0].toLowerCase();
+      return LINK_HOSTS.indexOf(host) !== -1;
+    });
+  }
+
+  function renderCard(model) {
+    var verdict = VERDICT_META[model.verdict.level] || VERDICT_META['solid-pick'];
+    var linksHtml = model.links
+      .map(function (link) {
+        return '<a href="' + escapeHtml(link.url) + '" rel="noopener noreferrer">' + escapeHtml(link.label) + '</a>';
+      })
+      .join('');
+    var strengths = model.strengths
+      .map(function (item) {
+        return '<li>' + escapeHtml(item) + '</li>';
+      })
+      .join('');
+    var weaknesses = model.weaknesses
+      .map(function (item) {
+        return '<li>' + escapeHtml(item) + '</li>';
+      })
+      .join('');
+    var install =
+      model.installHint
+        ? '<p class="install">Quick install with Ollama: <code>' + escapeHtml(model.installHint) + '</code></p>'
+        : '';
+
+    return (
+      '<article class="card" data-model-id="' + escapeHtml(model.id) + '">' +
+      '<header class="card-head">' +
+      '<h3>' + escapeHtml(model.name) + '</h3>' +
+      '<span class="chip">' + escapeHtml(model.family) + ' - ' + escapeHtml(model.creator) + '</span>' +
+      '</header>' +
+      '<p class="blurb">' + escapeHtml(model.blurb) + '</p>' +
+      '<ul class="stats">' +
+      '<li><span class="stat-label">Size</span><b>' + escapeHtml(model.params) + ' params</b></li>' +
+      '<li><span class="stat-label">Download</span><b>' + escapeHtml(formatSize(model)) + ' (4-bit)</b></li>' +
+      '<li><span class="stat-label">System RAM</span><b>' + escapeHtml(formatRam(model)) + '</b></li>' +
+      '<li><span class="stat-label">Runs on</span><b>' + escapeHtml(DEVICE_META[model.device]) + '</b></li>' +
+      '<li><span class="stat-label">License</span><b>' + escapeHtml(model.license) + '</b></li>' +
+      '</ul>' +
+      '<div class="tradeoffs">' +
+      '<div class="col"><h4>Strengths</h4><ul class="plus">' + strengths + '</ul></div>' +
+      '<div class="col"><h4>Watch out for</h4><ul class="minus">' + weaknesses + '</ul></div>' +
+      '</div>' +
+      '<p class="verdict ' + verdict.className + '"><b>' + escapeHtml(verdict.label) + '</b><span>' +
+      escapeHtml(model.verdict.text) + '</span></p>' +
+      install +
+      '<footer class="card-foot">' +
+      linksHtml +
+      '<span class="checked">Checked ' + escapeHtml(model.rechecked) + '</span>' +
+      '</footer>' +
+      '</article>'
+    );
+  }
+
+  function renderEmptyState() {
+    return (
+      '<div class="empty-state">' +
+      '<h3>No model fits that combination</h3>' +
+      '<p>Try "Any RAM" or clear the search box - there is almost always a model that fits.</p>' +
+      '</div>'
+    );
+  }
+
+  function renderApp(root, models) {
+    var state = { ram: 'any', family: 'all', q: '' };
+
+    root.innerHTML =
+      '<div class="controls">' +
+      '<div class="control-group">' +
+      '<label for="ram-filter">Your RAM budget</label>' +
+      '<select id="ram-filter">' +
+      RAM_OPTIONS.map(function (option) {
+        return '<option value="' + option.value + '">' + escapeHtml(option.label) + '</option>';
+      }).join('') +
+      '</select>' +
+      '</div>' +
+      '<div class="control-group">' +
+      '<label for="family-filter">Family</label>' +
+      '<select id="family-filter">' +
+      '<option value="all">All families</option>' +
+      families(models)
+        .map(function (family) {
+          return '<option value="' + escapeHtml(family) + '">' + escapeHtml(family) + '</option>';
+        })
+        .join('') +
+      '</select>' +
+      '</div>' +
+      '<div class="control-group control-grow">' +
+      '<label for="model-search">Search</label>' +
+      '<input id="model-search" type="search" placeholder="Try "coder", "vision" or "Llama"" aria-label="Search models">' +
+      '</div>' +
+      '</div>' +
+      '<p id="result-count" class="result-count" role="status" aria-live="polite"></p>' +
+      '<section id="cards" class="card-grid" aria-label="Model cards"></section>';
+
+    var ramSelect = root.querySelector('#ram-filter');
+    var familySelect = root.querySelector('#family-filter');
+    var searchInput = root.querySelector('#model-search');
+    var cardsEl = root.querySelector('#cards');
+    var countEl = root.querySelector('#result-count');
+
+    function draw() {
+      var visible = sortModels(filterModels(models, state));
+      countEl.textContent = 'Showing ' + visible.length + ' of ' + models.length + ' models';
+      cardsEl.innerHTML = visible.length
+        ? visible.map(renderCard).join('')
+        : renderEmptyState();
+    }
+
+    ramSelect.addEventListener('change', function () {
+      state.ram = ramSelect.value;
+      draw();
+    });
+    familySelect.addEventListener('change', function () {
+      state.family = familySelect.value;
+      draw();
+    });
+    searchInput.addEventListener('input', function () {
+      state.q = searchInput.value;
+      draw();
+    });
+
+    draw();
+  }
+
+  function init() {
+    var root = document.getElementById('app-root');
+    var dataEl = document.getElementById('models-data');
+    if (!root || !dataEl) return;
+    renderApp(root, JSON.parse(dataEl.textContent));
+  }
+
+  var api = {
+    RAM_OPTIONS: RAM_OPTIONS,
+    VERDICT_META: VERDICT_META,
+    DEVICE_META: DEVICE_META,
+    LINK_HOSTS: LINK_HOSTS,
+    escapeHtml: escapeHtml,
+    formatRam: formatRam,
+    formatSize: formatSize,
+    matchesRam: matchesRam,
+    matchesQuery: matchesQuery,
+    filterModels: filterModels,
+    sortModels: sortModels,
+    families: families,
+    verifyLinkHosts: verifyLinkHosts,
+    renderCard: renderCard,
+    renderEmptyState: renderEmptyState,
+    renderApp: renderApp,
+    init: init
+  };
+
+  if (typeof module !== 'undefined' && module.exports) {
+    module.exports = api;
+  } else {
+    global.FreeLocalModelsApp = api;
+  }
+
+  if (typeof document !== 'undefined' && document.getElementById) {
+    init();
+  }
+})(typeof window !== 'undefined' ? window : globalThis);
+
+  </script>
+</body>
+</html>

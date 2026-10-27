@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="A plain-English directory of notable free-to-run local AI models, filtered by how much RAM your computer has. No downloads bundled, no accounts, no affiliate links." />
+  <title>Free Local AI Models - a beginner-friendly directory</title>
+  <style>
+%%STYLES%%
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <p class="kicker">A plain-English companion from dylanasdale.github.io</p>
+    <h1>Free Local AI Models</h1>
+    <p class="tagline">Real AI assistants you can download and run entirely on your own computer - no subscription, no internet connection needed once they are installed. Pick your RAM budget below, look for the green "Great first pick" badge, and copy one line to install.</p>
+    <p class="peers">Companion resource to the <b>local AI handbook</b> (step-by-step setup how-to) and the <b>free AI tools directory</b> (free tools that run in your browser, not on your machine).</p>
+  </header>
+
+  <main>
+    <section class="intro" aria-label="How to use this directory">
+      <ol>
+        <li>Choose the RAM your computer has (it decides which models fit).</li>
+        <li>Open a model's download page, or copy its one-line install command.</li>
+        <li>Ask it something you actually care about.</li>
+      </ol>
+      <p class="quiet">Every model here is free to download and run offline. Download sizes are approximate files in a common 4-bit ("Q4") format - always confirm current sizes and requirements on the linked model page.</p>
+    </section>
+
+    <div id="app-root"></div>
+  </main>
+
+  <footer class="site-footer">
+    <p><b>Nothing here is bundled or hosted.</b> Links only go to the model's official download home (Hugging Face or Ollama). There are no affiliate links, accounts, keys, or tracking on this page - it is a single offline HTML file.</p>
+    <p>Models change fast. Each card shows the date it was last rechecked; when in doubt, trust the numbers on the linked page over the numbers on this page.</p>
+    <p>Distributed under the MIT License. Copyright (c) 2026 Asdale Dynamics, LLC. Part of Dylan Asdale's beginner-friendly AI guide collection. Not affiliated with Meta, Google, Microsoft, Mistral AI, Alibaba, DeepSeek, Hugging Face, or the Allen Institute for AI; model names are trademarks of their owners. Educational information only.</p>
+  </footer>
+
+  <script id="models-data" type="application/json">
+%%MODELS_JSON%%
+  </script>
+  <script>
+%%APP_JS%%
+  </script>
+</body>
+</html>
